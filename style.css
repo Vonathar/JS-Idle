@@ -1,0 +1,165 @@
+body {
+    font-family: arial;
+    margin: 0;
+    background-image: URL("https://backgroundcheckall.com/wp-content/uploads/2017/12/minimalist-background-5.jpg");
+    background-size: 100% 100%;
+}
+
+body , html {
+    overflow-y: hidden;
+}
+
+
+#screenCenter {
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+#screenTopLeft {
+    position: absolute;
+    height: 20vh;
+    width: 20vw;
+    left: 1%;
+    top: 10%;
+}
+
+#developerMenu {
+    background-color: rgb(190, 190, 190);
+    border: 1px solid black;
+    position: absolute;
+    top: 10%;
+    right: 1%;
+    height: 65vh;
+    width: 20vw;
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    overflow: auto;
+}
+
+#laptopIcon {
+    position: relative;
+    top: 25%;
+    height: 40vh;
+    width: 40vh;
+}
+
+h1 {
+    text-align: center;
+    font-size: 4.5vh;
+    color: rgb(190, 190, 190);
+}
+
+#currentChar , #currentProgram {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    border-color: black;
+    border-style: solid;
+    border-width: 0.2px;
+    background-color: rgb(190, 190, 190);
+}
+
+
+#developerOne , #developerTwo , #developerThree , #developerFour , #developerFive , #developerSix , 
+#developerSeven , #developerEight , #developerNine , #developerTen , #developerEleven {
+    display: flex;
+    border: 0.1px solid black;
+}
+
+#developerOneParagraph , #developerOneImage ,
+#developerTwoParagraph , #developerTwoImage ,
+#developerThreeParagraph , #developerThreeImage ,
+#developerFourParagraph , #developerFourImage ,
+#developerFiveParagraph , #developerFiveImage ,
+#developerSixParagraph , #developerSixImage ,
+#developerSevenParagraph , #developerSevenImage ,
+#developerEightParagraph , #developerEightImage ,
+#developerNineParagraph , #developerNineImage ,
+#developerTenParagraph , #developerTenImage ,
+#developerElevenParagraph , #developerElevenImage {
+    padding: 10%;
+    width: 60vw;
+    height: 60vh;
+    margin: 10px;
+    font-size: 1vw;
+    text-align: center;
+}
+
+#developerOneImage ,
+#developerTwoImage ,
+#developerThreeImage ,
+#developerFourImage ,
+#developerFiveImage ,
+#developerSixImage ,
+#developerSevenImage ,
+#developerEightImage ,
+#developerNineImage ,
+#developerTenImage ,
+#developerElevenImage {
+    width: 40%;
+    height: 40%;
+    padding: 0;
+}
+
+#developerOneParagraph ,
+#developerTwoParagraph ,
+#developerThreeParagraph ,
+#developerFourParagraph ,
+#developerFiveParagraph ,
+#developerSixParagraph ,
+#developerSevenParagraph ,
+#developerEightParagraph ,
+#developerNineParagraph ,
+#developerTenParagraph ,
+#developerElevenParagraph {
+    width: 50%;
+    height: 0.05vh;
+}
+
+
+
+#currentCharIcon , #currentCharParagraph , #currentProgramIcon , #currentProgramParagraph {
+    width: 3vw;
+    height: 3vh;
+    margin: 5px;
+    font-size: 1vw;
+    text-align: center;
+}
+
+#currentCharParagraph , #currentProgramParagraph {
+    width: 30%;
+    line-height: 3;
+    text-align: left;
+}
+
+#currentCharIcon , #currentProgramIcon {
+    padding-left: 10%;
+    height: 20%;
+}
+
+#screenBottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+#userLevelScreen {
+    text-align: center;
+    padding-bottom: 2%;
+}
+
+#userLevelParagraph {
+    color: rgb(190, 190, 190);
+    font-size: 1vw;
+    line-height: 0;
+}
+
+#userLevelProgressBar {
+    width: 60%;
+    height: 1vh;
+}
