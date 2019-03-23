@@ -1,5 +1,8 @@
 **A JS Idle game**.
 
+https://vonathar.github.io/JS-Idle/. 
+
+
 The player can click on the computer to write '*code*', and when the player has enough lines of code he can write a full '*program*'.
 
 It's possible for the player to hire other developers to make the work faster (they add CPS - *Code Per Second*).
