@@ -36,10 +36,6 @@ body , html {
     overflow-x:hidden;
 }
 
-::-webkit-scrollbar {
-    width: 0px;
-    overflow: auto;
-}
 
 #laptopIcon {
     position: relative;
