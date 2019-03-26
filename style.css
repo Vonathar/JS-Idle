@@ -36,6 +36,18 @@ body , html {
     overflow-x:hidden;
 }
 
+#upgradeMenu {
+    background-color: rgb(190, 190, 190);
+    border: 1px solid black;
+    position: absolute;
+    bottom: 10%;
+    left: 1%;
+    height: 45vh;
+    width: 25vw;
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+
 
 #laptopIcon {
     position: relative;
@@ -67,6 +79,12 @@ h1 {
     border: 0.1px solid black;
 }
 
+#upgradeOne , #upgradeTwo , #upgradeThree , #upgradeFour , #upgradeFive , #upgradeSix , 
+#upgradeSeven , #upgradeEight , #upgradeNine , #upgradeTen , #upgradeEleven {
+    display: flex;
+    border: 0.1px solid black;
+}
+
 #developerOneParagraph , #developerOneImage ,
 #developerTwoParagraph , #developerTwoImage ,
 #developerThreeParagraph , #developerThreeImage ,
@@ -81,6 +99,23 @@ h1 {
     padding: 10%;
     width: 60vw;
     height: 60vh;
+    margin: 10px;
+    font-size: 1vw;
+    text-align: center;
+}
+
+#upgradeOneParagraph , #upgradeOneImage ,
+#upgradeTwoParagraph , #upgradeTwoImage ,
+#upgradeThreeParagraph , #upgradeThreeImage ,
+#upgradeFourParagraph , #upgradeFourImage ,
+#upgradeFiveParagraph , #upgradeFiveImage ,
+#upgradeSixParagraph , #upgradeSixImage ,
+#upgradeSevenParagraph , #upgradeSevenImage ,
+#upgradeEightParagraph , #upgradeEightImage ,
+#upgradeNineParagraph , #upgradeNineImage ,
+#upgradeTenParagraph , #upgradeTenImage ,
+#upgradeElevenParagraph , #upgradeElevenImage {
+    padding: 5%;
     margin: 10px;
     font-size: 1vw;
     text-align: center;
@@ -102,6 +137,22 @@ h1 {
     padding: 0;
 }
 
+#upgradeOneImage ,
+#upgradeTwoImage ,
+#upgradeThreeImage ,
+#upgradeFourImage ,
+#upgradeFiveImage ,
+#upgradeSixImage ,
+#upgradeSevenImage ,
+#upgradeEightImage ,
+#upgradeNineImage ,
+#upgradeTenImage ,
+#upgradeElevenImage {
+    width: 20%;
+    height: 20%;
+    padding: 0;
+}
+
 #developerOneParagraph ,
 #developerTwoParagraph ,
 #developerThreeParagraph ,
@@ -115,6 +166,24 @@ h1 {
 #developerElevenParagraph {
     width: 50%;
     height: 0.05vh;
+}
+
+#upgradeOneParagraph ,
+#upgradeTwoParagraph ,
+#upgradeThreeParagraph ,
+#upgradeFourParagraph ,
+#upgradeFiveParagraph ,
+#upgradeSixParagraph ,
+#upgradeSevenParagraph ,
+#upgradeEightParagraph ,
+#upgradeNineParagraph ,
+#upgradeTenParagraph ,
+#upgradeElevenParagraph {
+    width: 50%;
+    height: 3vh;
+    padding: 0;
+    position: relative;
+    left: 0.5vw;
 }
 
 
