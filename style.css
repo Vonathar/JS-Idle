@@ -24,6 +24,15 @@ body , html {
     top: 10%;
 }
 
+#screenTopCenter {
+    position: absolute;
+    width: 25vw;
+    top: 10%;
+    left: 37%;
+    text-align: center;
+    font-size: 1vw;
+}
+
 #developerMenu {
     background-color: rgb(190, 190, 190);
     border: 1px solid black;
@@ -65,6 +74,16 @@ h1 {
 #currentChar , #currentProgram {
     display: flex;
     justify-content: left;
+    width: 100%;
+    border-color: black;
+    border-style: solid;
+    border-width: 0.2px;
+    background-color: rgb(190, 190, 190);
+}
+
+#currentClickPower , #currentCodePerSecond , #currentXpMultiplier {
+    display: flex;
+    justify-content: center;
     width: 100%;
     border-color: black;
     border-style: solid;
