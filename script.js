@@ -2,6 +2,7 @@
 
 let laptopIcon = document.body.querySelector("#laptopIcon");
 let clickPowerParagraph = document.body.querySelector("#clickPowerParagraph");
+let xpMultiplierParagraph = document.body.querySelector("#xpMultiplierParagraph");
 let currentCharParagraph = document.body.querySelector("#currentCharParagraph");
 let charPerSecondParagraph = document.body.querySelector("#charPerSecondParagraph");
 let userLevelProgressBar = document.body.querySelector("#userLevelProgressBar");
@@ -28,6 +29,22 @@ let developerEightImage = document.body.querySelector("#developerEightImage");
 let developerNineImage = document.body.querySelector("#developerNineImage");
 let developerTenImage = document.body.querySelector("#developerTenImage");
 let developerElevenImage = document.body.querySelector("#developerElevenImage");
+let upgradeOneParagraph = document.body.querySelector("#upgradeOneParagraph");
+let upgradeTwoParagraph = document.body.querySelector("#upgradeTwoParagraph");
+let upgradeThreeParagraph = document.body.querySelector("#upgradeThreeParagraph");
+let upgradeFoureParagraph = document.body.querySelector("#upgradeFourParagraph");
+let upgradeFiveParagraph = document.body.querySelector("#upgradeFiveParagraph");
+let upgradeSixParagraph = document.body.querySelector("#upgradeSixParagraph");
+let upgradeSevenParagraph = document.body.querySelector("#upgradeSevenParagraph");
+let upgradeEightParagraph = document.body.querySelector("#upgradeEightParagraph");
+let upgradeOneImage = document.body.querySelector("#upgradeOneImage");
+let upgradeTwoImage = document.body.querySelector("#upgradeTwoImage");
+let upgradeThreeImage = document.body.querySelector("#upgradeThreeImage");
+let upgradeFoureImage = document.body.querySelector("#upgradeFourImage");
+let upgradeFiveImage = document.body.querySelector("#upgradeFiveImage");
+let upgradeSixImage = document.body.querySelector("#upgradeSixImage");
+let upgradeSevenImage = document.body.querySelector("#upgradeSevenImage");
+let upgradeEightImage = document.body.querySelector("#upgradeEightImage");
 
 
 // Main game objects
@@ -37,7 +54,13 @@ let developerElevenImage = document.body.querySelector("#developerElevenImage");
 
 let player = {
     clickPower : 1,
+    clickPowerMultiplier : 1,
+    isAutoClickActive : false,
+    clickAutoSpeed : 1000,
     charPerSecond : 0,
+    charPerSecondMultiplier : 1,
+    idleXpSpeed : 1000,
+    idleCharSpeed : 1000,
     experience : 0,
     experienceRequired : 25,
     experienceMultiplier : 1,
@@ -57,7 +80,7 @@ let player = {
 
     attack() {
         let bonusFromCps = (player.charPerSecond * 0.2);
-        inventory.currentChars += Math.round(player.clickPower + bonusFromCps);
+        inventory.currentChars += Math.round((player.clickPower + bonusFromCps) * player.clickPowerMultiplier);
         player.experience += (player.clickPower * player.experienceMultiplier);
         while (player.experience >= player.experienceRequired) {
             player.levelUp();
@@ -85,6 +108,7 @@ let player = {
 let inventory = {
     currentChars : 0,
     currentPrograms : 0,
+    developerDiscountMultiplier : 1,
 }
 
 
@@ -102,53 +126,186 @@ class Developer  {
         this.domParagraph = domParagraph;
     }
     levelUp() {
-        if (inventory.currentChars >= this.price) {
+        if (inventory.currentChars >= (this.price * inventory.developerDiscountMultiplier)) {
             if (!this.isActive) {
                 this.isActive = true;
-                player.charPerSecond += this.charPerSecond;
-            }
-            inventory.currentChars -= this.price;
+                player.charPerSecond += (this.charPerSecond * player.charPerSecondMultiplier);
+            } else {
+                inventory.currentChars -= (this.price * inventory.developerDiscountMultiplier);
             currentCharParagraph.textContent = inventory.currentChars;
             ++ this.level;
-            player.charPerSecond -= this.charPerSecond;
-            if (this.level == 5 || 10 || 25 || 50 || 75 || 100) {
-                this.charPerSecond = Math.round(1.05 * (this.charPerSecond * this.charMultiplier))
-                this.price = Math.floor(this.price * 1.4);
+            player.charPerSecond -= (this.charPerSecond * player.charPerSecondMultiplier);
+            if (this.level == 5 || this.level == 10 || this.level == 25 || this.level == 50 || this.level == 100) {
+                this.charPerSecond = Math.round(1.05 * ((this.charPerSecond * this.charMultiplier) * player.charPerSecondMultiplier));
+                this.price = Math.floor((this.price * 1.5) * inventory.developerDiscountMultiplier);
             } else {
-                this.charPerSecond = Math.round((this.charPerSecond * this.charMultiplier));
-                this.price = Math.floor(this.price * 1.3);
+                this.charPerSecond = Math.round((this.charPerSecond * this.charMultiplier) * player.charPerSecondMultiplier);
+                this.price = Math.floor((this.price * 1.3) * inventory.developerDiscountMultiplier);
             }
             player.charPerSecond += this.charPerSecond;
-            clickPowerParagraph.textContent = "Click power: " + Math.round(player.clickPower + (this.charPerSecond * 0.2));
+            player.clickPower = (player.clickPower + (this.charPerSecond * 0.1));
+            clickPowerParagraph.textContent = "Click power: " + Math.round(player.clickPower);
             charPerSecondParagraph.textContent = "Total CPS: " + Math.round(player.charPerSecond);
             this.domParagraph.innerHTML = "Lv " + this.level + " - " + this.name + "</br> <strong>Cost: " + this.price + "</strong> </br> </br> <em>CPS: " + this.charPerSecond + "</em></em>";
+            }
         }
     }
 }
 
-let developerOne = new Developer( "Steve" , false , 0 , 2 , 50 , 1.2 , developerOneParagraph);
-let developerTwo = new Developer( "John" , false , 0 , 13 , 500 , 1.2 , developerTwoParagraph);
-let developerThree = new Developer( "Lauren" , false , 0 , 30 , 2500 , 1.2 , developerThreeParagraph);
-let developerFour = new Developer( "Greg" , false , 0 , 50 , 5000 , 1.2 , developerFourParagraph);
-let developerFive = new Developer( "Sarah" , false , 0 , 150 , 25000 , 1.2 , developerFiveParagraph);
-let developerSix = new Developer( "Mike" , false , 0 , 400 , 100000 , 1.2 , developerSixParagraph);
-let developerSeven = new Developer( "Chris" , false , 0 , 750 , 500000 , 1.2 , developerSevenParagraph);
-let developerEight = new Developer( "Angela" , false , 0 , 1250 , 2500000 , 1.2 , developerEightParagraph);
-let developerNine = new Developer( "Ryan" , false , 0 , 2100 , 10000000 , 1.2 , developerNineParagraph);
-let developerTen = new Developer( "Claire" , false , 0 , 3700 , 50000000 , 1.2 , developerTenParagraph);
-let developerEleven = new Developer( "Bill" , false , 0 , 7000 , 500000000 , 1.2 , developerElevenParagraph);
+let developerOne = new Developer( "Steve" , false , 0 , 2 , 50 , 1.3 , developerOneParagraph);
+let developerTwo = new Developer( "John" , false , 0 , 13 , 500 , 1.3 , developerTwoParagraph);
+let developerThree = new Developer( "Lauren" , false , 0 , 30 , 2500 , 1.3 , developerThreeParagraph);
+let developerFour = new Developer( "Greg" , false , 0 , 50 , 5000 , 1.3 , developerFourParagraph);
+let developerFive = new Developer( "Sarah" , false , 0 , 150 , 25000 , 1.3 , developerFiveParagraph);
+let developerSix = new Developer( "Mike" , false , 0 , 400 , 100000 , 1.3 , developerSixParagraph);
+let developerSeven = new Developer( "Chris" , false , 0 , 750 , 500000 , 1.3 , developerSevenParagraph);
+let developerEight = new Developer( "Angela" , false , 0 , 1250 , 2500000 , 1.3 , developerEightParagraph);
+let developerNine = new Developer( "Ryan" , false , 0 , 2100 , 10000000 , 1.3 , developerNineParagraph);
+let developerTen = new Developer( "Claire" , false , 0 , 3700 , 50000000 , 1.3 , developerTenParagraph);
+let developerEleven = new Developer( "Bill" , false , 0 , 7000 , 500000000 , 1.3 , developerElevenParagraph);
+
+
+// Upgrades
+
+class Upgrade {
+
+    constructor(name , isUnlocked , level , price , domParagraph , description) {
+        this.name = name;
+        this.isUnlocked = isUnlocked;
+        this.level = level;
+        this.price = price;
+        this.domParagraph = domParagraph;
+        this.description = description;
+    }
+
+    levelUp() {
+        if (inventory.currentChars >= this.price) {
+            if (!this.isUnlocked) {
+                this.isUnlocked = true;
+            }
+            this.level ++;
+            inventory.currentChars -= this.price;
+            this.price *= 10;
+            this.domParagraph.innerHTML = "Lv " + this.level + " - " + this.name + " </br> <strong>Cost: " + this.price + "</strong> </br> </br> <em>" + this.description + "</em>";
+            if (this.name == "Coding skills") {
+                this.upgradeClickPower();
+            }
+            else if (this.name == "Night shifts") {
+                this.upgradeCharPerSecond();
+            }
+            else if (this.name == "Team meetings") {
+                this.upgradeXpGain();
+            }
+            else if (this.name == "Better salaries") {
+                this.upgradeIdleCharSpeed();
+            }
+            else if (this.name == "Maths studies") {
+                this.upgradeIdleXpSpeed();
+            }
+            else if (this.name == "Networking") {
+                this.upgradeDeveloperCost();
+            }
+            else if (this.name == "Bug fixing") {
+                this.upgradeAutoClicker();
+            }
+        }
+    }
+
+    upgradeClickPower() {
+        player.clickPowerMultiplier ++;
+    }
+
+    upgradeCharPerSecond() {
+        player.charPerSecondMultiplier += 0.025;
+    }
+
+    upgradeXpGain() {
+        player.experienceMultiplier += 0.1;
+        xpMultiplierParagraph.textContent = "XP Multiplier: " + Math.round(player.experienceMultiplier * 10) / 10;
+    }
+
+    upgradeIdleCharSpeed() {
+        player.idleCharSpeed -= 75;
+        clearInterval(activateCharPerSec);
+        activateCharPerSec();
+        
+    }
+
+    upgradeIdleXpSpeed() {
+        player.idleXpSpeed -= 75;
+        clearInterval(activateXpPerSec);
+        activateXpPerSec();
+    }
+
+    upgradeDeveloperCost() {
+        inventory.developerDiscountMultiplier -= 0.05;
+    }
+
+    upgradeAutoClicker() {
+        if (!player.isAutoClickActive) {
+            player.isAutoClickActive = true;
+            activateAutoClick();
+        } else {
+            player.clickAutoSpeed -= 100;
+        }
+    }
+}
+
+let upgradeOne = new Upgrade("Coding skills" , false , 0 , 5 , upgradeOneParagraph , "Increases click power!");
+let upgradeTwo = new Upgrade("Night shifts" , false , 0 , 5 , upgradeTwoParagraph , "Better developer CPS!");
+let upgradeThree = new Upgrade("Team meetings" , false , 0 , 5 , upgradeThreeParagraph , "Increase XP Gain!");
+let upgradeFour = new Upgrade("Better salaries" , false , 0 , 5 , upgradeFourParagraph , "Developers code faster!");
+let upgradeFive = new Upgrade("Maths studies" , false , 0 , 5 , upgradeFiveParagraph , "Faster passive XP!");
+let upgradeSix = new Upgrade("Networking" , false , 0 , 5 , upgradeSixParagraph , "Reduce dev costs!");
+let upgradeSeven = new Upgrade("Bug fixing" , false , 0 , 5 , upgradeSevenParagraph , "Faster auto click");
+let upgradeEight = new Upgrade("Go home" , false , 0 , 5 , upgradeEightParagraph , "Restart with a gift!");
 
 
 // Game loop
 
-setInterval(() => {
-    updateCharPerSecond();
-} , 1000)
+let activateCharPerSec = () => {
+    setInterval(() => {
+        addCharPerSecond();
+    } , player.idleCharSpeed);
+}
 
-updateCharPerSecond = () => {
+activateCharPerSec();
+
+let activateXpPerSec = () => {
+    setInterval(() => {
+        addXpPerSecond();
+    } , player.idleXpSpeed);
+}
+
+activateXpPerSec();
+
+let activateAutoClick = () => {
+    setInterval(() => {
+        addClickPerSecond();
+    } , player.clickAutoSpeed)
+}
+
+
+addCharPerSecond = () => {
     inventory.currentChars = Math.round(inventory.currentChars + player.charPerSecond);
     currentCharParagraph.textContent = inventory.currentChars;
 }
+
+addXpPerSecond = () => {
+    player.experience += (player.clickPower * player.experienceMultiplier * 0.15);
+    if (player.experience >= player.experienceRequired) {
+        player.levelUp();
+        userLevelProgressBar.value = player.experience;
+    } else {
+        userLevelProgressBar.value = player.experience;
+    }
+}
+
+addClickPerSecond = () => {
+    player.attack();
+}
+
+
 
 
 // Event listeners & DOM
@@ -159,6 +316,7 @@ updateCharPerSecond = () => {
 laptopIcon.addEventListener("click" , function() {
     player.attack();
 });
+
 
 // Developers
 
@@ -194,6 +352,31 @@ developerTenImage.addEventListener("click" , function() {
 })
 developerElevenImage.addEventListener("click" , function() {
     developerEleven.levelUp();
+});
+
+
+// Upgrades 
+
+upgradeOneImage.addEventListener("click" , function() {
+    upgradeOne.levelUp();
+})
+upgradeTwoImage.addEventListener("click" , function() {
+    upgradeTwo.levelUp();
+})
+upgradeThreeImage.addEventListener("click" , function() {
+    upgradeThree.levelUp();
+})
+upgradeFourImage.addEventListener("click" , function() {
+    upgradeFour.levelUp();
+})
+upgradeFiveImage.addEventListener("click" , function() {
+    upgradeFive.levelUp();
+})
+upgradeSixImage.addEventListener("click" , function() {
+    upgradeSix.levelUp();
+})
+upgradeSevenImage.addEventListener("click" , function() {
+    upgradeSeven.levelUp();
 })
 
 
@@ -206,5 +389,5 @@ let repeatCall = (toCall , times) => {
 }
 
 laptopIcon.addEventListener("click" , function() {
-    repeatCall(player.attack , 100);
+    repeatCall(player.attack , 1500);
 });
