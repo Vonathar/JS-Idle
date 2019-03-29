@@ -1,6 +1,7 @@
 // Importing from the DOM
 
 let laptopIcon = document.body.querySelector("#laptopIcon");
+let clickPowerParagraph = document.body.querySelector("#clickPowerParagraph");
 let currentCharParagraph = document.body.querySelector("#currentCharParagraph");
 let charPerSecondParagraph = document.body.querySelector("#charPerSecondParagraph");
 let userLevelProgressBar = document.body.querySelector("#userLevelProgressBar");
@@ -38,13 +39,25 @@ let player = {
     clickPower : 1,
     charPerSecond : 0,
     experience : 0,
-    experienceRequired : 100,
+    experienceRequired : 25,
     experienceMultiplier : 1,
     level : 1,
-    rankTitle : "Trainee Developer",
+    rankTitle : "Student Developer",
+    rankTitlesArray : [
+        "Student Developer",
+        "Intern Developer",
+        "Trainee Developer",
+        "Full-time Developer",
+        "Senior Developer",
+        "Team Leader Developer",
+        "Veteran Developer",
+        "Alien Developer",
+        "God Developer",
+    ],
 
     attack() {
-        inventory.currentChars += player.clickPower;
+        let bonusFromCps = (player.charPerSecond * 0.2);
+        inventory.currentChars += Math.round(player.clickPower + bonusFromCps);
         player.experience += (player.clickPower * player.experienceMultiplier);
         while (player.experience >= player.experienceRequired) {
             player.levelUp();
@@ -55,9 +68,14 @@ let player = {
 
     levelUp() {
         player.experience -= player.experienceRequired;
-        player.experienceRequired *= 1.3;
+        player.experienceRequired *= 1.02;
         player.level ++;
+        if (player.level == 5 || player.level == 10 || player.level == 25 || player.level == 50 || player.level == 70 || player.level == 100 || player.level == 150 || player.level == 200) {
+            player.rankTitle = player.rankTitlesArray[ player.rankTitlesArray.indexOf(player.rankTitle) + 1];
+            console.log("Reached");
+        }
         userLevelParagraph.textContent = "Lv " + player.level + "  -  " + player.rankTitle;
+        userLevelProgressBar.max = player.experienceRequired;
     }
 }
 
@@ -101,11 +119,11 @@ class Developer  {
                 this.price = Math.floor(this.price * 1.3);
             }
             player.charPerSecond += this.charPerSecond;
+            clickPowerParagraph.textContent = "Click power: " + Math.round(player.clickPower + (this.charPerSecond * 0.2));
             charPerSecondParagraph.textContent = "Total CPS: " + Math.round(player.charPerSecond);
             this.domParagraph.innerHTML = "Lv " + this.level + " - " + this.name + "</br> <strong>Cost: " + this.price + "</strong> </br> </br> <em>CPS: " + this.charPerSecond + "</em></em>";
         }
     }
-
 }
 
 let developerOne = new Developer( "Steve" , false , 0 , 2 , 50 , 1.2 , developerOneParagraph);
@@ -188,5 +206,5 @@ let repeatCall = (toCall , times) => {
 }
 
 laptopIcon.addEventListener("click" , function() {
-    repeatCall(player.attack , 1000);
+    repeatCall(player.attack , 100);
 });
