@@ -1,309 +1,370 @@
 body {
-    font-family: arial;
-    margin: 0;
-    background-image: URL("https://img.wallpapersafari.com/desktop/1920/1080/5/15/2jVYsW.jpg");
-    background-size: 100% 100%;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  background-image: URL("https://ginx.tv/wp-content/uploads/2015/07/Web-background.jpg");
+  background-size: 100% 100%;
 }
 
-body , html {
-    overflow-y: hidden;
+body,
+html {
+  overflow-y: hidden;
 }
-
 
 #screenCenter {
-    text-align: center;
-    height: 100vh;
-    width: 100vw;
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 #screenTopLeft {
-    position: absolute;
-    height: 20vh;
-    width: 20vw;
-    left: 1%;
-    top: 10%;
+  position: absolute;
+  height: 20vh;
+  width: 20vw;
+  left: 2vw;
+  top: 15vh;
 }
 
 #screenTopCenter {
-    position: absolute;
-    width: 25vw;
-    top: 10%;
-    left: 37%;
-    text-align: center;
-    font-size: 1vw;
+  position: absolute;
+  width: 25vw;
+  top: 15vh;
+  left: 37vw;
+  text-align: center;
+  font-size: 1em;
 }
 
 #developerMenu {
-    background-color: rgb(190, 190, 190);
-    border: 1px solid black;
-    position: absolute;
-    top: 10%;
-    right: 1%;
-    height: 65vh;
-    width: 20vw;
-    overflow-y:auto;
-    overflow-x:hidden;
+  background-color: rgba(233, 233, 233, 0.671);
+  border: 1px solid black;
+  border-radius: 10px;
+  position: absolute;
+  top: 15vh;
+  right: 1vw;
+  height: 65vh;
+  width: 20vw;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 #upgradeMenu {
-    background-color: rgb(190, 190, 190);
-    border: 1px solid black;
-    position: absolute;
-    bottom: 10%;
-    left: 1%;
-    height: 45vh;
-    width: 25vw;
-    overflow-y:auto;
-    overflow-x:hidden;
+  background-color: rgba(233, 233, 233, 0.671);
+  border: 1px solid black;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 20vh;
+  left: 2vw;
+  height: 45vh;
+  width: 20vw;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-
 #laptopIcon {
-    position: relative;
-    top: 25%;
-    height: 40vh;
-    width: 40vh;
-    transition: transform .1s;
+  position: relative;
+  top: 35vh;
+  height: 40vh;
+  width: 40vh;
+  transition: transform 0.1s;
 }
 
 #laptopIcon:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 #laptopIcon:active {
-    transform: scale(1.3);
+  transform: scale(1.3);
 }
-
 
 h1 {
-    text-align: center;
-    font-size: 4.5vh;
+  text-align: center;
+  position: absolute;
+  left: 44vw;
+  top: 1vh;
+  border-radius: 15px;
+  color: rgba(219, 219, 219, 0.774);
+  padding: 0.5vw;
+  background-color: rgba(0, 0, 0, 0.301);
+  font-size: 2.5em;
 }
 
-#currentChar , #currentProgram {
-    display: flex;
-    justify-content: left;
-    width: 100%;
-    border-color: black;
-    border-style: solid;
-    border-width: 0.2px;
-    background-color: rgb(190, 190, 190);
+#currentChar,
+#currentProgram {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 3px;
+
+  background-color: rgba(233, 233, 233, 0.671);
 }
 
-#currentClickPower , #currentCharPerSecond , #currentXpMultiplier {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    border-color: black;
-    border-style: solid;
-    border-width: 0.2px;
-    background-color: rgb(190, 190, 190);
+#currentClickPower,
+#currentCharPerSecond,
+#currentXpMultiplier {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: rgba(233, 233, 233, 0.671);
 }
 
-
-#developerOne , #developerTwo , #developerThree , #developerFour , #developerFive , #developerSix , 
-#developerSeven , #developerEight , #developerNine , #developerTen , #developerEleven {
-    display: flex;
-    border: 0.1px solid black;
+#developerOne,
+#developerTwo,
+#developerThree,
+#developerFour,
+#developerFive,
+#developerSix,
+#developerSeven,
+#developerEight,
+#developerNine,
+#developerTen,
+#developerEleven {
+  display: flex;
+  border: 0.1px solid black;
 }
 
-#upgradeOne , #upgradeTwo , #upgradeThree , #upgradeFour , #upgradeFive , #upgradeSix , 
-#upgradeSeven , #upgradeEight , #upgradeNine , #upgradeTen , #upgradeEleven {
-    display: flex;
-    border: 0.1px solid black;
+#upgradeOne,
+#upgradeTwo,
+#upgradeThree,
+#upgradeFour,
+#upgradeFive,
+#upgradeSix,
+#upgradeSeven,
+#upgradeEight,
+#upgradeNine,
+#upgradeTen,
+#upgradeEleven {
+  display: flex;
+  border: 0.1px solid black;
 }
 
-#developerOneParagraph , #developerOneImage ,
-#developerTwoParagraph , #developerTwoImage ,
-#developerThreeParagraph , #developerThreeImage ,
-#developerFourParagraph , #developerFourImage ,
-#developerFiveParagraph , #developerFiveImage ,
-#developerSixParagraph , #developerSixImage ,
-#developerSevenParagraph , #developerSevenImage ,
-#developerEightParagraph , #developerEightImage ,
-#developerNineParagraph , #developerNineImage ,
-#developerTenParagraph , #developerTenImage ,
-#developerElevenParagraph , #developerElevenImage {
-    padding: 5%;
-    width: 60vw;
-    height: 60vh;
-    margin: 10px;
-    font-size: 1vw;
-    text-align: center;
-}
-
-#upgradeOneParagraph , #upgradeOneImage ,
-#upgradeTwoParagraph , #upgradeTwoImage ,
-#upgradeThreeParagraph , #upgradeThreeImage ,
-#upgradeFourParagraph , #upgradeFourImage ,
-#upgradeFiveParagraph , #upgradeFiveImage ,
-#upgradeSixParagraph , #upgradeSixImage ,
-#upgradeSevenParagraph , #upgradeSevenImage ,
-#upgradeEightParagraph , #upgradeEightImage ,
-#upgradeNineParagraph , #upgradeNineImage ,
-#upgradeTenParagraph , #upgradeTenImage ,
-#upgradeElevenParagraph , #upgradeElevenImage {
-    padding: 5%;
-    margin: 10px;
-    font-size: 1vw;
-    text-align: center;
-}
-
-#developerOneImage ,
-#developerTwoImage ,
-#developerThreeImage ,
-#developerFourImage ,
-#developerFiveImage ,
-#developerSixImage ,
-#developerSevenImage ,
-#developerEightImage ,
-#developerNineImage ,
-#developerTenImage ,
+#developerOneParagraph,
+#developerOneImage,
+#developerTwoParagraph,
+#developerTwoImage,
+#developerThreeParagraph,
+#developerThreeImage,
+#developerFourParagraph,
+#developerFourImage,
+#developerFiveParagraph,
+#developerFiveImage,
+#developerSixParagraph,
+#developerSixImage,
+#developerSevenParagraph,
+#developerSevenImage,
+#developerEightParagraph,
+#developerEightImage,
+#developerNineParagraph,
+#developerNineImage,
+#developerTenParagraph,
+#developerTenImage,
+#developerElevenParagraph,
 #developerElevenImage {
-    width: 40%;
-    height: 40%;
-    padding: 0;
-    transition: transform .1s;
+  padding: 5%;
+  width: 60vw;
+  height: 60vh;
+  margin: 10px;
+  font-size: 1em;
+  text-align: center;
 }
 
-#developerOneImage:hover , 
-#developerTwoImage:hover , 
-#developerThreeImage:hover , 
-#developerFourImage:hover , 
-#developerFiveImage:hover , 
-#developerSixImage:hover , 
-#developerSevenImage:hover , 
-#developerEightImage:hover , 
-#developerNineImage:hover , 
-#developerTenImage:hover ,  
-#developerElevenImage:hover , 
-#upgradeOneImage:hover , 
-#upgradeTwoImage:hover , 
-#upgradeThreeImage:hover , 
-#upgradeFourImage:hover , 
-#upgradeFiveImage:hover , 
-#upgradeSixImage:hover , 
-#upgradeSevenImage:hover , 
-#upgradeEightImage:hover , 
-#upgradeNineImage:hover , 
-#upgradeTenImage:hover ,  
-#upgradeElevenImage:hover {
-    transform: scale(1.1);
-}
-
-#developerOneImage:active , 
-#developerTwoImage:active , 
-#developerThreeImage:active , 
-#developerFourImage:active , 
-#developerFiveImage:active , 
-#developerSixImage:active , 
-#developerSevenImage:active , 
-#developerEightImage:active , 
-#developerNineImage:active , 
-#developerTenImage:active ,  
-#developerElevenImage:active , 
-#upgradeOneImage:active , 
-#upgradeTwoImage:active , 
-#upgradeThreeImage:active , 
-#upgradeFourImage:active , 
-#upgradeFiveImage:active , 
-#upgradeSixImage:active , 
-#upgradeSevenImage:active , 
-#upgradeEightImage:active , 
-#upgradeNineImage:active , 
-#upgradeTenImage:active ,  
-#upgradeElevenImage:active {
-    transform: scale(1.2);
-}
-
-#upgradeOneImage ,
-#upgradeTwoImage ,
-#upgradeThreeImage ,
-#upgradeFourImage ,
-#upgradeFiveImage ,
-#upgradeSixImage ,
-#upgradeSevenImage ,
-#upgradeEightImage ,
-#upgradeNineImage ,
-#upgradeTenImage ,
+#upgradeOneParagraph,
+#upgradeOneImage,
+#upgradeTwoParagraph,
+#upgradeTwoImage,
+#upgradeThreeParagraph,
+#upgradeThreeImage,
+#upgradeFourParagraph,
+#upgradeFourImage,
+#upgradeFiveParagraph,
+#upgradeFiveImage,
+#upgradeSixParagraph,
+#upgradeSixImage,
+#upgradeSevenParagraph,
+#upgradeSevenImage,
+#upgradeEightParagraph,
+#upgradeEightImage,
+#upgradeNineParagraph,
+#upgradeNineImage,
+#upgradeTenParagraph,
+#upgradeTenImage,
+#upgradeElevenParagraph,
 #upgradeElevenImage {
-    width: 20%;
-    height: 20%;
-    padding: 0;
-    transition: transform .1s;
+  padding: 5%;
+  margin: 10px;
+  font-size: 1em;
+  text-align: center;
 }
 
-#developerOneParagraph ,
-#developerTwoParagraph ,
-#developerThreeParagraph ,
-#developerFourParagraph ,
-#developerFiveParagraph ,
-#developerSixParagraph ,
-#developerSevenParagraph ,
-#developerEightParagraph ,
-#developerNineParagraph ,
-#developerTenParagraph ,
+#developerOneImage,
+#developerTwoImage,
+#developerThreeImage,
+#developerFourImage,
+#developerFiveImage,
+#developerSixImage,
+#developerSevenImage,
+#developerEightImage,
+#developerNineImage,
+#developerTenImage,
+#developerElevenImage {
+  width: 5vw;
+  height: 5vw;
+  padding: 0;
+  transition: transform 0.1s;
+}
+
+#developerOneImage:hover,
+#developerTwoImage:hover,
+#developerThreeImage:hover,
+#developerFourImage:hover,
+#developerFiveImage:hover,
+#developerSixImage:hover,
+#developerSevenImage:hover,
+#developerEightImage:hover,
+#developerNineImage:hover,
+#developerTenImage:hover,
+#developerElevenImage:hover,
+#upgradeOneImage:hover,
+#upgradeTwoImage:hover,
+#upgradeThreeImage:hover,
+#upgradeFourImage:hover,
+#upgradeFiveImage:hover,
+#upgradeSixImage:hover,
+#upgradeSevenImage:hover,
+#upgradeEightImage:hover,
+#upgradeNineImage:hover,
+#upgradeTenImage:hover,
+#upgradeElevenImage:hover {
+  transform: scale(1.1);
+}
+
+#developerOneImage:active,
+#developerTwoImage:active,
+#developerThreeImage:active,
+#developerFourImage:active,
+#developerFiveImage:active,
+#developerSixImage:active,
+#developerSevenImage:active,
+#developerEightImage:active,
+#developerNineImage:active,
+#developerTenImage:active,
+#developerElevenImage:active,
+#upgradeOneImage:active,
+#upgradeTwoImage:active,
+#upgradeThreeImage:active,
+#upgradeFourImage:active,
+#upgradeFiveImage:active,
+#upgradeSixImage:active,
+#upgradeSevenImage:active,
+#upgradeEightImage:active,
+#upgradeNineImage:active,
+#upgradeTenImage:active,
+#upgradeElevenImage:active {
+  transform: scale(1.2);
+}
+
+#upgradeOneImage,
+#upgradeTwoImage,
+#upgradeThreeImage,
+#upgradeFourImage,
+#upgradeFiveImage,
+#upgradeSixImage,
+#upgradeSevenImage,
+#upgradeEightImage,
+#upgradeNineImage,
+#upgradeTenImage,
+#upgradeElevenImage {
+  width: 4vw;
+  height: 4vw;
+  padding: 0;
+  transition: transform 0.1s;
+}
+
+#developerOneParagraph,
+#developerTwoParagraph,
+#developerThreeParagraph,
+#developerFourParagraph,
+#developerFiveParagraph,
+#developerSixParagraph,
+#developerSevenParagraph,
+#developerEightParagraph,
+#developerNineParagraph,
+#developerTenParagraph,
 #developerElevenParagraph {
-    width: 50%;
-    height: 0.05vh;
+  width: 50%;
+  height: 0.05vh;
 }
 
-#upgradeOneParagraph ,
-#upgradeTwoParagraph ,
-#upgradeThreeParagraph ,
-#upgradeFourParagraph ,
-#upgradeFiveParagraph ,
-#upgradeSixParagraph ,
-#upgradeSevenParagraph ,
-#upgradeEightParagraph ,
-#upgradeNineParagraph ,
-#upgradeTenParagraph ,
+#upgradeOneParagraph,
+#upgradeTwoParagraph,
+#upgradeThreeParagraph,
+#upgradeFourParagraph,
+#upgradeFiveParagraph,
+#upgradeSixParagraph,
+#upgradeSevenParagraph,
+#upgradeEightParagraph,
+#upgradeNineParagraph,
+#upgradeTenParagraph,
 #upgradeElevenParagraph {
-    width: 50%;
-    padding: 0;
-    position: relative;
-    left: 0.5vw;
+  width: 50%;
+  padding: 0;
+  position: relative;
+  left: 0.5vw;
 }
 
-
-
-#currentCharIcon , #currentCharParagraph , #currentProgramIcon , #currentProgramParagraph {
-    width: 3vw;
-    height: 3vh;
-    margin: 5px;
-    font-size: 1.5vw;
-    text-align: center;
+#currentCharIcon,
+#currentCharParagraph,
+#currentProgramIcon,
+#currentProgramParagraph {
+  width: 2vw;
+  height: 2vh;
+  margin: 0.5vh;
+  font-size: 1.2em;
+  text-align: center;
 }
 
-#currentCharParagraph , #currentProgramParagraph {
-    width: 30%;
-    line-height: 2;
-    text-align: left;
+#currentCharParagraph,
+#currentProgramParagraph {
+  width: 30%;
+  line-height: 2;
+  text-align: left;
 }
 
-#currentCharIcon , #currentProgramIcon {
-    padding-left: 10%;
-    height: 20%;
+#currentCharIcon,
+#currentProgramIcon {
+  padding-left: 10%;
+  height: 20%;
 }
 
 #screenBottom {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 #userLevelScreen {
-    text-align: center;
-    padding-bottom: 2%;
+  text-align: center;
+  padding-bottom: 2%;
 }
 
 #userLevelParagraph {
-    color: rgb(190, 190, 190);
-    font-size: 1vw;
-    line-height: 0;
+  color: rgb(240, 240, 240);
+  font-size: 1.5em;
+  line-height: 0;
+}
+#userLevelProgressBar {
+  width: 60%;
+  height: 1vh;
 }
 
-#userLevelProgressBar {
-    width: 60%;
-    height: 1vh;
+progress {
+  border: none;
+  width: 400px;
+  height: 60px;
+  background: crimson;
+}
+
+progress::-webkit-progress-value {
+  background-color: rgba(233, 233, 233, 0.671);
 }
